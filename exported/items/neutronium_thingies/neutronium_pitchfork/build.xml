@@ -1,0 +1,17 @@
+<Build name="neutronium_pitchfork.scml">
+ <Symbol name="symbol0">
+  <Frame framenum="0" duration="1" image="neutronium_pitchfork_front_brok_1" w="100" h="240" x="50.000000" y="120.000000"/>
+ </Symbol>
+ <Symbol name="neutronium_pitchfork">
+  <Frame framenum="0" duration="1" image="swap_object_ground-0" w="140" h="180" x="0.000000" y="-76.500000"/>
+ </Symbol>
+ <Symbol name="swap_object">
+  <Frame framenum="0" duration="1" image="swap_object-1" w="100" h="240" x="-1.500000" y="48.000000"/>
+  <Frame framenum="1" duration="1" image="swap_object-4" w="100" h="240" x="-1.000000" y="48.000000"/>
+  <Frame framenum="2" duration="1" image="swap_object-5" w="100" h="240" x="-1.000000" y="48.000000"/>
+  <Frame framenum="3" duration="1" image="swap_object-7" w="100" h="240" x="-1.000000" y="48.000000"/>
+  <Frame framenum="4" duration="1" image="swap_object-2" w="60" h="240" x="-5.399998" y="42.000000"/>
+  <Frame framenum="5" duration="1" image="swap_object-3" w="60" h="240" x="-5.399998" y="42.000000"/>
+  <Frame framenum="6" duration="1" image="swap_object-0" w="100" h="240" x="0.000000" y="48.000000"/>
+ </Symbol>
+</Build>
