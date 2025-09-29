@@ -23,6 +23,8 @@ local function OnEquip(inst, owner)
     end
 	owner.AnimState:Show("ARM_carry")
 	owner.AnimState:Hide("ARM_normal")
+
+    inst.Light:Enable(true)
 end
 
 local function OnUnequip(inst, owner) 
@@ -32,6 +34,8 @@ local function OnUnequip(inst, owner)
     if skin_build ~= nil then
         owner:PushEvent("unequipskinneditem", inst:GetSkinName())
     end
+
+    inst.Light:Enable(false)
 end
 
 local function common_fn()
@@ -39,9 +43,15 @@ local function common_fn()
 
     inst.entity:AddTransform()
     inst.entity:AddAnimState()
+    inst.entity:AddLight()
     inst.entity:AddNetwork()
 
-    --inst:AddTag("light")
+    inst.Light:SetFalloff(.6)
+    inst.Light:SetIntensity(.8)
+    inst.Light:SetRadius(.6)
+    inst.Light:SetColour(255, 255, 255)
+    inst.Light:Enable(false)
+    inst.Light:EnableClientModulation(true)
 
     MakeInventoryPhysics(inst)
 
@@ -55,6 +65,8 @@ local function common_fn()
     inst:AddTag("neutronium_pickaxe")
 
     inst:AddTag("sharp")
+
+    inst:AddTag("light")
 
     inst:AddTag("tool")
 

@@ -83,11 +83,11 @@ return {
 		},
 		CAST_SPELLBOOK =
 		{
-			NO_TOPHAT = "only_used_by_waxwell",
+			NO_TOPHAT = "This spell or cast needs an magic hat...",
 		},
 		CASTAOE =
 		{
-			NO_MAX_SANITY = "only_used_by_waxwell",
+			NO_MAX_SANITY = "I'm starting feel the trued\ndarks of my mind...",
             NOT_ENOUGH_EMBERS = "only_used_by_willow",
             NO_TARGETS = "only_used_by_willow",
             CANT_SPELL_MOUNTED = "only_used_by_willow",
@@ -302,19 +302,19 @@ return {
         --wickerbottom specific action
         READ =
         {
-            GENERIC = "only_used_by_waxwell_and_wicker",
-            NOBIRDS = "only_used_by_waxwell_and_wicker",
-            NOWATERNEARBY = "only_used_by_waxwell_and_wicker",
-            TOOMANYBIRDS = "only_used_by_waxwell_and_wicker",
-            WAYTOOMANYBIRDS = "only_used_by_waxwell_and_wicker",
-            NOFIRES =       "only_used_by_waxwell_and_wicker",
-            NOSILVICULTURE = "only_used_by_waxwell_and_wicker",
-            NOHORTICULTURE = "only_used_by_waxwell_and_wicker",
-            NOTENTACLEGROUND = "only_used_by_waxwell_and_wicker",
-            NOSLEEPTARGETS = "only_used_by_waxwell_and_wicker",
-            TOOMANYBEES = "only_used_by_waxwell_and_wicker",
-            NOMOONINCAVES = "only_used_by_waxwell_and_wicker",
-            ALREADYFULLMOON = "only_used_by_waxwell_and_wicker",
+            GENERIC = "¡Let's spell this!",
+            NOBIRDS = "¡A good momnent for the birds!",
+            NOWATERNEARBY = "There's not water. How i cast fishes???",
+            TOOMANYBIRDS = "there has a lot of birds,\n i can't do nothing, duh...",
+            WAYTOOMANYBIRDS = "this is just ridiculous...",
+            NOFIRES =       "I can't extinguish anything,\n¡there's no fire!",
+            NOSILVICULTURE = "Haha, no trees, what a good joke...",
+            NOHORTICULTURE = "Nothing growing there...",
+            NOTENTACLEGROUND = "there's no soil for the tentacles...",
+            NOSLEEPTARGETS = "But nobody came to sleep...",
+            TOOMANYBEES = "¡I don't want to be stung with these bees!",
+            NOMOONINCAVES = "¡Oh dear! I can't see the sky haha.",
+            ALREADYFULLMOON = "Calling the moon? WITH FULL MOON THERE???",
         },
 		REMOTE_TELEPORT =
 		{
@@ -458,16 +458,16 @@ return {
     ANNOUNCE_MOUNT_LOWHEALTH = "This beast seems to be wounded.",
 
     --waxwell and wickerbottom specific strings
-    ANNOUNCE_TOOMANYBIRDS = "only_used_by_waxwell_and_wicker",
-    ANNOUNCE_WAYTOOMANYBIRDS = "only_used_by_waxwell_and_wicker",
-    ANNOUNCE_NOWATERNEARBY = "only_used_by_waxwell_and_wicker",
+    ANNOUNCE_TOOMANYBIRDS = "How many birds i can see?",
+    ANNOUNCE_WAYTOOMANYBIRDS = "Ugh, there's a lot of birds...",
+    ANNOUNCE_NOWATERNEARBY = "how i spawn the fishes? DUH.",
 
 	--waxwell specific
-	ANNOUNCE_SHADOWLEVEL_ITEM = "only_used_by_waxwell",
-	ANNOUNCE_EQUIP_SHADOWLEVEL_T1 = "only_used_by_waxwell",
-	ANNOUNCE_EQUIP_SHADOWLEVEL_T2 = "only_used_by_waxwell",
-	ANNOUNCE_EQUIP_SHADOWLEVEL_T3 = "only_used_by_waxwell",
-	ANNOUNCE_EQUIP_SHADOWLEVEL_T4 = "only_used_by_waxwell",
+	ANNOUNCE_SHADOWLEVEL_ITEM = "An item forged in the shadows,\nCONSUME MY SHADOW MINIONS.",
+	ANNOUNCE_EQUIP_SHADOWLEVEL_T1 = "The seed of the evil and faith.",
+	ANNOUNCE_EQUIP_SHADOWLEVEL_T2 = "The men in the shadows, feel the creep of the minion...",
+	ANNOUNCE_EQUIP_SHADOWLEVEL_T3 = "Even in the lights, the darkness just grows...",
+	ANNOUNCE_EQUIP_SHADOWLEVEL_T4 = "Dark, darker, yet darker...",
 
     --wolfgang specific
     ANNOUNCE_NORMALTOMIGHTY = "only_used_by_wolfang",
@@ -535,19 +535,19 @@ return {
         YUCKY = "Putting that in my mouth would be disgusting!",
 
         --Warly specific ANNOUNCE_EAT strings
-		COOKED = "only_used_by_warly",
-		DRIED = "only_used_by_warly",
-        PREPARED = "only_used_by_warly",
-        RAW = "only_used_by_warly",
-		SAME_OLD_1 = "only_used_by_warly",
-		SAME_OLD_2 = "only_used_by_warly",
-		SAME_OLD_3 = "only_used_by_warly",
-		SAME_OLD_4 = "only_used_by_warly",
-        SAME_OLD_5 = "only_used_by_warly",
-		TASTY = "only_used_by_warly",
+		COOKED = "Perfectly cooked.",
+		DRIED = "Tastes weridly dry...",
+        PREPARED = "What a well prepared meal.",
+        RAW = "",
+		SAME_OLD_1 = "",
+		SAME_OLD_2 = "",
+		SAME_OLD_3 = "",
+		SAME_OLD_4 = "",
+        SAME_OLD_5 = "",
+		TASTY = "HMMM, ¡Tasty!",
     },
 
-	ANNOUNCE_FOODMEMORY = "only_used_by_warly",
+	ANNOUNCE_FOODMEMORY = "",
 
     ANNOUNCE_ENCUMBERED =
     {
@@ -946,7 +946,7 @@ return {
 
     ANNOUNCE_PIRATES_ARRIVE = "That shanty can only mean one thing...",
 
-    ANNOUNCE_BOOK_MOON_DAYTIME = "only_used_by_waxwell_and_wicker",
+    ANNOUNCE_BOOK_MOON_DAYTIME = "¡Oh, please! ¡Only cast in night!",
 
     ANNOUNCE_OFF_SCRIPT = "I have a feeling that wasn't in the script.",
 
@@ -3129,7 +3129,7 @@ return {
 		WAXWELLJOURNAL =
 		{
 			GENERIC = "Spooky.",
-			NEEDSFUEL = "only_used_by_waxwell",
+			NEEDSFUEL = "The book needs dark fuel...",
 		},
 		WETGOOP = "It tastes like nothing.",
         WHIP = "Nothing like loud noises to help keep the peace.",
@@ -4041,10 +4041,10 @@ return {
         FROGFISHBOWL = "Is that just... frogs stuffed inside a fish?",
         POTATOTORNADO = "Potato, scientifically infused with the power of a tornado!",
         DRAGONCHILISALAD = "I hope I can handle the spice level.",
-        GLOWBERRYMOUSSE = "Warly sure can cook.",
+        GLOWBERRYMOUSSE = "I can cook that haha.",
         VOLTGOATJELLY = "It's shockingly delicious.",
         NIGHTMAREPIE = "It's a little spooky.",
-        BONESOUP = "No bones about it, Warly can cook.",
+        BONESOUP = "No bones about it, I can cook it.",
         MASHEDPOTATOES = "I've heard cooking is basically chemistry. I should try it.",
         POTATOSOUFFLE = "I forgot what good food tasted like.",
         MOQUECA = "He's as talented a chef as I am a scientist.",

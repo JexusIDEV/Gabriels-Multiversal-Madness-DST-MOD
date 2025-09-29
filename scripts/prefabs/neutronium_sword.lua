@@ -2,7 +2,7 @@ local assets = {
     Asset("ANIM", "anim/neutronium_sword.zip"),
 }
 
-TUNING.NEUTRONIUM_SWORD_DAMAGE_BASE = 1200
+TUNING.NEUTRONIUM_SWORD_DAMAGE_BASE = 320 --i want to keep the fight fun... but anyways drains a lot of health xd.
 TUNING.NEUTRONIUM_SWORD_FACTOR = 0.05
 TUNING.NEUTRONIUM_SWORD_SHADOW_LEVEL = 4
 TUNING.NEUTRONIUM_SWORD_WALK_SPEED_MULT = 1.75
@@ -16,6 +16,7 @@ local function OnEquip(inst, owner)
     end
 	owner.AnimState:Show("ARM_carry")
 	owner.AnimState:Hide("ARM_normal")
+    inst.Light:Enable(true)
 end
 
 local function OnUnequip(inst, owner) 
@@ -25,6 +26,7 @@ local function OnUnequip(inst, owner)
     if skin_build ~= nil then
         owner:PushEvent("unequipskinneditem", inst:GetSkinName())
     end
+    inst.Light:Enable(false)
 end
 
 local function common_fn()
@@ -32,7 +34,15 @@ local function common_fn()
 
     inst.entity:AddTransform()
     inst.entity:AddAnimState()
+    inst.entity:AddLight()
     inst.entity:AddNetwork()
+
+    inst.Light:SetFalloff(.6)
+    inst.Light:SetIntensity(.8)
+    inst.Light:SetRadius(.6)
+    inst.Light:SetColour(255, 255, 255)
+    inst.Light:Enable(false)
+    inst.Light:EnableClientModulation(true)
 
     MakeInventoryPhysics(inst)
 
@@ -46,6 +56,8 @@ local function common_fn()
     inst:AddTag("neutronium_sword")
 
     inst:AddTag("sharp")
+
+    inst:AddTag("light")
 
     --tool (from tool component) added to pristine state for optimization
     inst:AddTag("tool")

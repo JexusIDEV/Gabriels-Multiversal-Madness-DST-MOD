@@ -3,6 +3,14 @@ PrefabFiles = {
     "gabriel_eipa_unae",
     "gabriel_eipa_unae_none",
 
+    --material world prefab
+    "mod_rocks",
+
+    --materials
+    "raw_cristalyium",
+    "neutronium",
+    "infinity_matter",
+
     --prefab tool
     "neutronium_pickaxe",
     "neutronium_axe",
@@ -14,6 +22,9 @@ PrefabFiles = {
 }
 
 Assets = {
+    --SHADERS
+    --Asset("SHADER","shaders/infinity.ksh"),
+
     --characters textures
     --gabriel
     Asset( "IMAGE", "images/saveslot_portraits/gabriel_eipa_unae.tex" ),
@@ -46,9 +57,27 @@ Assets = {
     Asset( "IMAGE", "images/names_gold_gabriel_eipa_unae.tex" ),
     Asset( "ATLAS", "images/names_gold_gabriel_eipa_unae.xml" ),
 
+    --HUD related
+    Asset("IMAGE", "images/hud/criptian_tech.tex"),
+    Asset("ATLAS", "images/hud/criptian_tech.xml"),
+
     --inventory images
 
-    --NEUTRONIUM TOOLS
+    --CRISTALYIUM STUFF
+    Asset("ATLAS", "images/inventoryimages/raw_cristalyium.xml"),
+    Asset("IMAGE", "images/inventoryimages/raw_cristalyium.tex"),
+
+    Asset("ATLAS", "images/map_icons/cristalyium_ore.xml"),
+    Asset("IMAGE", "images/map_icons/cristalyium_ore.tex"),
+
+    --INFINITY STUFF
+    Asset("ATLAS", "images/inventoryimages/infinity_matter.xml"),
+    Asset("IMAGE", "images/inventoryimages/infinity_matter.tex"),
+
+    --NEUTRONIUM TOOLS AND STUFF
+    Asset("ATLAS", "images/inventoryimages/neutronium.xml"),
+    Asset("IMAGE", "images/inventoryimages/neutronium.tex"),
+
     Asset("ATLAS", "images/inventoryimages/neutronium_pickaxe.xml"),
     Asset("IMAGE", "images/inventoryimages/neutronium_pickaxe.tex"),
 
@@ -80,6 +109,14 @@ local STRINGS = GLOBAL.STRINGS --putting info for your item
 local ACTIONS = GLOBAL.ACTIONS --make item
 local Action = GLOBAL.Action --ditto
 
+AddRecipeFilter({
+    name="CRIPTIAN",
+    atlas="images/hud/criptian_tech.xml",
+    image="criptian_tech.tex"
+})
+
+STRINGS.UI.CRAFTING_FILTERS.CRIPTIAN = "Criptian Technology"
+
 STRINGS.CHARACTER_TITLES.gabriel_eipa_unae = "The Alien and Outer One."
 STRINGS.CHARACTER_NAMES.gabriel_eipa_unae = "Gabriel Eipa Unae"
 STRINGS.CHARACTER_DESCRIPTIONS.gabriel_eipa_unae = "*a\n*b\n*c"
@@ -94,7 +131,82 @@ STRINGS.SKIN_NAMES.gabriel_eipa_unae_none = "Basic"
 AddMinimapAtlas("images/map_icons/gabriel_eipa_unae.xml")
 AddModCharacter("gabriel_eipa_unae", "NEUTRAL", nil)
 
---tools
+--CRISTALYIUM
+
+AddMinimapAtlas("images/map_icons/cristalyium_ore.xml")
+STRINGS.NAMES.CRISTALYIUM_ORE = "Cristalyium Ore"
+STRINGS.CHARACTERS.GENERIC.DESCRIBE.CRISTALYIUM_ORE = "Why is it so purple and shiny?"
+
+AddMinimapAtlas("images/inventoryimages/raw_cristalyium.xml")
+STRINGS.NAMES.RAW_CRISTALYIUM = "Raw Cristalyium"
+STRINGS.RECIPE_DESC.RAW_CRISTALYIUM = "What???"
+STRINGS.CHARACTERS.GENERIC.DESCRIBE.RAW_CRISTALYIUM = "What a weird material..."
+
+AddCharacterRecipe(
+    "raw_cristalyium", 
+    {
+        Ingredient("moonglass", 10),
+    }, 
+    TECH.SCIENCE_THREE, 
+    { --config
+        builder_tag = "criptian",
+        atlas = "images/inventoryimages/raw_cristalyium.xml"
+    },
+    { --filters
+        "REFINE",
+        "SCIENCE",
+        "CRIPTIAN",
+    }
+)
+
+--infinity stuff
+
+AddMinimapAtlas("images/inventoryimages/infinity_matter.xml")
+STRINGS.NAMES.INFINITY_MATTER = "Infinity"
+STRINGS.RECIPE_DESC.INFINITY_MATTER = "¡Wait! How this exists?"
+STRINGS.CHARACTERS.GENERIC.DESCRIBE.INFINITY_MATTER = "Too bright...\nBut beautifully colorfull."
+
+AddCharacterRecipe(
+    "infinity_matter", 
+    {
+        Ingredient("moonglass", 10),
+    }, 
+    TECH.SCIENCE_THREE, 
+    { --config
+        builder_tag = "criptian",
+        atlas = "images/inventoryimages/infinity_matter.xml"
+    },
+    { --filters
+        "REFINE",
+        "SCIENCE",
+        "CRIPTIAN",
+    }
+)
+
+--tools and neutronium stuff
+
+AddMinimapAtlas("images/inventoryimages/neutronium.xml")
+STRINGS.NAMES.NEUTRONIUM = "Neutronium"
+STRINGS.RECIPE_DESC.NEUTRONIUM = "More beyond the stars..."
+STRINGS.CHARACTERS.GENERIC.DESCRIBE.NEUTRONIUM = "It's feels strangely dense...\nAnd it's so dark and bright at the same time..."
+
+AddCharacterRecipe(
+    "neutronium", 
+    {
+        Ingredient("nightmarefuel", 20),
+        Ingredient("horrorfuel", 20),
+    }, 
+    TECH.SCIENCE_THREE, 
+    { --config
+        builder_tag = "criptian",
+        atlas = "images/inventoryimages/neutronium.xml"
+    },
+    { --filters
+        "REFINE",
+        "SCIENCE",
+        "CRIPTIAN",
+    }
+)
 
 AddMinimapAtlas("images/inventoryimages/neutronium_axe.xml")
 STRINGS.NAMES.NEUTRONIUM_AXE = "Neutronium Axe"
@@ -103,7 +215,7 @@ STRINGS.CHARACTERS.GENERIC.DESCRIBE.NEUTRONIUM_AXE = "Cutting cutter"
 
 AddCharacterRecipe(
     "neutronium_axe", 
-    { Ingredient("nightmarefuel", 5) }, 
+    { Ingredient("neutronium", 5, "images/inventoryimages/neutronium.xml") }, 
     TECH.NONE, 
     { --config
         builder_tag = "criptian",
@@ -111,6 +223,7 @@ AddCharacterRecipe(
     },
     { --filters
         "TOOLS",
+        "CRIPTIAN",
     }
 )
 
@@ -121,7 +234,7 @@ STRINGS.CHARACTERS.GENERIC.DESCRIBE.NEUTRONIUM_PICKAXE = "Pretty, sharp and terr
 
 AddCharacterRecipe(
     "neutronium_pickaxe", 
-    { Ingredient("nightmarefuel", 5) }, 
+    { Ingredient("neutronium", 5, "images/inventoryimages/neutronium.xml") }, 
     TECH.NONE, 
     { --config
         builder_tag = "criptian",
@@ -129,6 +242,7 @@ AddCharacterRecipe(
     },
     { --filters
         "TOOLS",
+        "CRIPTIAN",
     }
 )
 
@@ -139,7 +253,7 @@ STRINGS.CHARACTERS.GENERIC.DESCRIBE.NEUTRONIUM_SHOVEL = "An truly excavator"
 
 AddCharacterRecipe(
     "neutronium_shovel", 
-    { Ingredient("nightmarefuel", 5) }, 
+    { Ingredient("neutronium", 5, "images/inventoryimages/neutronium.xml") }, 
     TECH.NONE, 
     { --config
         builder_tag = "criptian",
@@ -147,6 +261,7 @@ AddCharacterRecipe(
     },
     { --filters
         "TOOLS",
+        "CRIPTIAN",
     }
 )
 
@@ -157,7 +272,7 @@ STRINGS.CHARACTERS.GENERIC.DESCRIBE.NEUTRONIUM_HAMMER = "Feels dense and TRULY t
 
 AddCharacterRecipe(
     "neutronium_hammer", 
-    { Ingredient("nightmarefuel", 5) }, 
+    { Ingredient("neutronium", 5, "images/inventoryimages/neutronium.xml") }, 
     TECH.NONE, 
     { --config
         builder_tag = "criptian",
@@ -165,6 +280,7 @@ AddCharacterRecipe(
     },
     { --filters
         "TOOLS",
+        "CRIPTIAN",
     }
 )
 
@@ -175,7 +291,7 @@ STRINGS.CHARACTERS.GENERIC.DESCRIBE.NEUTRONIUM_HOE = "¡Sharpey!"
 
 AddCharacterRecipe(
     "neutronium_hoe", 
-    { Ingredient("nightmarefuel", 5) }, 
+    { Ingredient("neutronium", 5, "images/inventoryimages/neutronium.xml") }, 
     TECH.NONE, 
     { --config
         builder_tag = "criptian",
@@ -183,7 +299,8 @@ AddCharacterRecipe(
     },
     { --filters
         "TOOLS",
-        "GARDENING"
+        "GARDENING",
+        "CRIPTIAN",
     }
 )
 
@@ -194,7 +311,7 @@ STRINGS.CHARACTERS.GENERIC.DESCRIBE.NEUTRONIUM_PITCHFORK = "The beauty of decora
 
 AddCharacterRecipe(
     "neutronium_pitchfork", 
-    { Ingredient("nightmarefuel", 5) }, 
+    { Ingredient("neutronium", 5, "images/inventoryimages/neutronium.xml") }, 
     TECH.NONE, 
     { --config
         builder_tag = "criptian",
@@ -202,6 +319,7 @@ AddCharacterRecipe(
     },
     { --filters
         "TOOLS",
+        "CRIPTIAN",
     }
 )
 
@@ -212,7 +330,7 @@ STRINGS.CHARACTERS.GENERIC.DESCRIBE.NEUTRONIUM_SWORD = "I'm the destructor now,\
 
 AddCharacterRecipe(
     "neutronium_sword", 
-    { Ingredient("nightmarefuel", 5) }, 
+    { Ingredient("neutronium", 5, "images/inventoryimages/neutronium.xml") }, 
     TECH.NONE, 
     { --config
         builder_tag = "criptian",
@@ -220,5 +338,6 @@ AddCharacterRecipe(
     },
     { --filters
         "WEAPONS",
+        "CRIPTIAN",
     }
 )

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<spriter_data scml_version="1.0" generator="BrashMonkey Spriter" generator_version="r11">
+    <folder id="0" name="raw_cristalyium">
+        <file id="0" name="raw_cristalyium/raw_cristalyium-0.png" width="154" height="109" pivot_x="0.5" pivot_y="0.375"/>
+        <file id="1" name="raw_cristalyium/raw_cristalyium-1.png" width="169" height="133" pivot_x="0.5" pivot_y="0.375"/>
+        <file id="2" name="raw_cristalyium/raw_cristalyium-2.png" width="161" height="106" pivot_x="0.5" pivot_y="0.375"/>
+    </folder>
+    <entity id="0" name="raw_cristalyium">
+        <animation id="0" name="idle_0" length="1000" interval="100">
+            <mainline>
+                <key id="0">
+                    <object_ref id="0" timeline="0" key="0" z_index="0"/>
+                </key>
+            </mainline>
+            <timeline id="0" name="raw_cristalyium-0">
+                <key id="0" spin="0">
+                    <object folder="0" file="0" angle="0"/>
+                </key>
+            </timeline>
+        </animation>
+        <animation id="1" name="idle_1" length="1000" interval="100">
+            <mainline>
+                <key id="0">
+                    <object_ref id="0" timeline="0" key="0" z_index="0"/>
+                </key>
+            </mainline>
+            <timeline id="0" name="raw_cristalyium-1">
+                <key id="0" spin="0">
+                    <object folder="0" file="1" angle="0"/>
+                </key>
+            </timeline>
+        </animation>
+        <animation id="2" name="idle_2" length="1000" interval="100">
+            <mainline>
+                <key id="0">
+                    <object_ref id="0" timeline="0" key="0" z_index="0"/>
+                </key>
+            </mainline>
+            <timeline id="0" name="raw_cristalyium-2">
+                <key id="0" spin="0">
+                    <object folder="0" file="2" angle="0"/>
+                </key>
+            </timeline>
+        </animation>
+    </entity>
+</spriter_data>

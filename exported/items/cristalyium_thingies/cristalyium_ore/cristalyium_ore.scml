@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<spriter_data scml_version="1.0" generator="BrashMonkey Spriter" generator_version="r11">
+    <folder id="0" name="cristalyium_ore_1">
+        <file id="0" name="cristalyium_ore_1/cristalyium_ore_1-0.png" width="416" height="490" pivot_x="0.5" pivot_y="0.12"/>
+        <file id="1" name="cristalyium_ore_1/cristalyium_ore_1-1.png" width="416" height="336" pivot_x="0.5" pivot_y="0.1775"/>
+        <file id="2" name="cristalyium_ore_1/cristalyium_ore_1-2.png" width="396" height="349" pivot_x="0.5" pivot_y="0.1875"/>
+    </folder>
+    <folder id="1" name="cristalyium_ore_2">
+        <file id="0" name="cristalyium_ore_2/cristalyium_ore_2-0.png" width="405" height="346" pivot_x="0.5" pivot_y="0.22"/>
+        <file id="1" name="cristalyium_ore_2/cristalyium_ore_2-1.png" width="405" height="231" pivot_x="0.5" pivot_y="0.3325"/>
+        <file id="2" name="cristalyium_ore_2/cristalyium_ore_2-2.png" width="405" height="174" pivot_x="0.5" pivot_y="0.4525"/>
+    </folder>
+    <folder id="2" name="cristalyium_ore_3">
+        <file id="0" name="cristalyium_ore_3/cristalyium_ore_3-0.png" width="376" height="451" pivot_x="0.5" pivot_y="0.1625"/>
+        <file id="1" name="cristalyium_ore_3/cristalyium_ore_3-1.png" width="376" height="286" pivot_x="0.5" pivot_y="0.255"/>
+        <file id="2" name="cristalyium_ore_3/cristalyium_ore_3-2.png" width="376" height="142" pivot_x="0.5" pivot_y="0.5"/>
+    </folder>
+    <folder id="3" name="cristalyium_ore_4">
+        <file id="0" name="cristalyium_ore_4/cristalyium_ore_4-0.png" width="366" height="332" pivot_x="0.5" pivot_y="0.15"/>
+        <file id="1" name="cristalyium_ore_4/cristalyium_ore_4-1.png" width="366" height="275" pivot_x="0.5" pivot_y="0.182"/>
+        <file id="2" name="cristalyium_ore_4/cristalyium_ore_4-2.png" width="366" height="275" pivot_x="0.5" pivot_y="0.182"/>
+    </folder>
+    <entity id="0" name="cristalyium_ore_1">
+        <animation id="0" name="full" length="1000" interval="100">
+            <mainline>
+                <key id="0">
+                    <object_ref id="0" timeline="0" key="0" z_index="0"/>
+                </key>
+            </mainline>
+            <timeline id="0" name="cristalyium_ore_1-0">
+                <key id="0" spin="0">
+                    <object folder="0" file="0" x="0"/>
+                </key>
+            </timeline>
+        </animation>
+        <animation id="1" name="med" length="1000" interval="100">
+            <mainline>
+                <key id="0">
+                    <object_ref id="0" timeline="0" key="0" z_index="0"/>
+                </key>
+            </mainline>
+            <timeline id="0" name="cristalyium_ore_1-1">
+                <key id="0" spin="0">
+                    <object folder="0" file="1" x="0"/>
+                </key>
+            </timeline>
+        </animation>
+        <animation id="2" name="low" length="1000" interval="100">
+            <mainline>
+                <key id="0">
+                    <object_ref id="0" timeline="0" key="0" z_index="0"/>
+                </key>
+            </mainline>
+            <timeline id="0" name="cristalyium_ore_1-2">
+                <key id="0" spin="0">
+                    <object folder="0" file="2" x="0"/>
+                </key>
+            </timeline>
+        </animation>
+    </entity>
+    <entity id="1" name="cristalyium_ore_2">
+        <animation id="0" name="full" length="1000" interval="100">
+            <mainline>
+                <key id="0">
+                    <object_ref id="0" timeline="0" key="0" z_index="0"/>
+                </key>
+            </mainline>
+            <timeline id="0" name="cristalyium_ore_2-0">
+                <key id="0" spin="0">
+                    <object folder="1" file="0"/>
+                </key>
+            </timeline>
+        </animation>
+        <animation id="1" name="med" length="1000" interval="100">
+            <mainline>
+                <key id="0">
+                    <object_ref id="0" timeline="0" key="0" z_index="0"/>
+                </key>
+            </mainline>
+            <timeline id="0" name="cristalyium_ore_2-1">
+                <key id="0" spin="0">
+                    <object folder="1" file="1" x="0"/>
+                </key>
+            </timeline>
+        </animation>
+        <animation id="2" name="low" length="1000" interval="100">
+            <mainline>
+                <key id="0">
+                    <object_ref id="0" timeline="0" key="0" z_index="0"/>
+                </key>
+            </mainline>
+            <timeline id="0" name="cristalyium_ore_2-2">
+                <key id="0" spin="0">
+                    <object folder="1" file="2" x="0"/>
+                </key>
+            </timeline>
+        </animation>
+    </entity>
+    <entity id="2" name="cristalyium_ore_3">
+        <animation id="0" name="full" length="1000" interval="100">
+            <mainline>
+                <key id="0">
+                    <object_ref id="0" timeline="0" key="0" z_index="0"/>
+                </key>
+            </mainline>
+            <timeline id="0" name="cristalyium_ore_3-0">
+                <key id="0" spin="0">
+                    <object folder="2" file="0" x="0"/>
+                </key>
+            </timeline>
+        </animation>
+        <animation id="1" name="med" length="1000" interval="100">
+            <mainline>
+                <key id="0">
+                    <object_ref id="0" timeline="0" key="0" z_index="0"/>
+                </key>
+            </mainline>
+            <timeline id="0" name="cristalyium_ore_3-1">
+                <key id="0" spin="0">
+                    <object folder="2" file="1" x="0"/>
+                </key>
+            </timeline>
+        </animation>
+        <animation id="2" name="low" length="1000" interval="100">
+            <mainline>
+                <key id="0">
+                    <object_ref id="0" timeline="0" key="0" z_index="0"/>
+                </key>
+            </mainline>
+            <timeline id="0" name="cristalyium_ore_3-2">
+                <key id="0" spin="0">
+                    <object folder="2" file="2" x="0"/>
+                </key>
+            </timeline>
+        </animation>
+    </entity>
+    <entity id="3" name="cristalyium_ore_4">
+        <animation id="0" name="full" length="1000" interval="100">
+            <mainline>
+                <key id="0">
+                    <object_ref id="0" timeline="0" key="0" z_index="0"/>
+                </key>
+            </mainline>
+            <timeline id="0" name="cristalyium_ore_4-0">
+                <key id="0" spin="0">
+                    <object folder="3" file="0"/>
+                </key>
+            </timeline>
+        </animation>
+        <animation id="1" name="med" length="1000" interval="100">
+            <mainline>
+                <key id="0">
+                    <object_ref id="0" timeline="0" key="0" z_index="0"/>
+                </key>
+            </mainline>
+            <timeline id="0" name="cristalyium_ore_4-1">
+                <key id="0" spin="0">
+                    <object folder="3" file="1" x="0" y="-0"/>
+                </key>
+            </timeline>
+        </animation>
+        <animation id="2" name="low" length="1000" interval="100">
+            <mainline>
+                <key id="0">
+                    <object_ref id="0" timeline="0" key="0" z_index="0"/>
+                </key>
+            </mainline>
+            <timeline id="0" name="cristalyium_ore_4-2">
+                <key id="0" spin="0">
+                    <object folder="3" file="2" y="-0"/>
+                </key>
+            </timeline>
+        </animation>
+    </entity>
+</spriter_data>

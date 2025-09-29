@@ -2,6 +2,18 @@
 <spriter_data scml_version="1.0" generator="BrashMonkey Spriter" generator_version="r11">
     <folder id="0" name="swap_object">
         <file id="0" name="swap_object/swap_object-0.png" width="150" height="260" pivot_x="0.2" pivot_y="0.3"/>
+		<file id="1" name="swap_object/swap_object-0.png" width="150" height="260" pivot_x="0.2" pivot_y="0.3"/>
+        <file id="2" name="swap_object/swap_object-2.png" width="114" height="259" pivot_x="0.23" pivot_y="0.3"/>
+        <file id="3" name="swap_object/swap_object-3.png" width="380" height="233" pivot_x="0.565789" pivot_y="0.304721"/>
+		<file id="4" name="swap_object/swap_object-0.png" width="150" height="260" pivot_x="0.2" pivot_y="0.3"/>
+        <file id="5" name="swap_object/swap_object-5.png" width="140" height="245" pivot_x="0.288714" pivot_y="0.277551"/>
+        <file id="6" name="swap_object/swap_object-6.png" width="145" height="252" pivot_x="0.245" pivot_y="0.234127"/>
+        <file id="7" name="swap_object/swap_object-7.png" width="146" height="228" pivot_x="0.195" pivot_y="0.234127"/>
+        <file id="8" name="swap_object/swap_object-8.png" width="80" height="200" pivot_x="0.295182" pivot_y="0.230661"/>
+        <file id="9" name="swap_object/swap_object-9.png" width="137" height="257" pivot_x="0.175182" pivot_y="0.190661"/>
+        <file id="10" name="swap_object/swap_object-10.png" width="80" height="260" pivot_x="0.38" pivot_y="0.3"/>
+        <file id="11" name="swap_object/swap_object-11.png" width="115" height="227" pivot_x="0.347826" pivot_y="0.290749"/>
+        <file id="12" name="swap_object/swap_object-12.png" width="90" height="227" pivot_x="0.447826" pivot_y="0.290749"/>
     </folder>
     <folder id="1" name="neutronium_hoe">
         <file id="0" name="neutronium_hoe/neutronium_hoe-0.png" width="260" height="140" pivot_x="0.75" pivot_y="0.05"/>
@@ -15,7 +27,7 @@
             </mainline>
             <timeline id="0" name="neutronium_hoe-0">
                 <key id="0" spin="0">
-                    <object folder="1" file="0"/>
+                    <object folder="1" file="0" angle="0"/>
                 </key>
             </timeline>
         </animation>
