@@ -15,7 +15,8 @@ locations = [
 ]
 
 mainFiles = [
-    "./modicon.png",
+    "./modicon.tex",
+    "./modicon.xml",
     "./modinfo.lua",
     "./modmain.lua"
 ]

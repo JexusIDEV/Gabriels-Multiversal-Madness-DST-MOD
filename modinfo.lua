@@ -10,8 +10,8 @@ client_only_mod = false
 dst_compatible = true
 all_clients_require_mod = true
 
-icon_atlas = ""
-icon = ""
+icon_atlas = "modicon.xml"
+icon = "modicon.tex"
 
 priority = -1
 
