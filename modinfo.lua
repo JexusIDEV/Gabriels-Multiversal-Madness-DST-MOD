@@ -1,5 +1,5 @@
 name = "Way to the GAB_ID's Multiversal Madness"
-description = "An whole new experience.\nExplore thw weird mechanics and multiverse of GAB_ID's, enjoying is characters and new items in your world.\nThank you for downloading the mod.\n¡Enjoy!"
+description = "An whole new experience.\nExplore the weird mechanics and multiverse of GAB_ID's, enjoying is characters and new items in your world.\nThank you for downloading the mod.\n¡Enjoy!"
 author = "gab_id"
 version = "1.0"
 forumthread = ""
