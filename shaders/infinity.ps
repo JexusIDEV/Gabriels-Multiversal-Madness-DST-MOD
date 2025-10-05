@@ -21,7 +21,7 @@ vec3 hsv2rgb(vec3 c) {
 #define EFFECT_SAMPLER SAMPLER[2]
 
 void main() {
-    vec3 baseColor = texture2D(SRC_IMAGE, PS_TEXCOORD0).rgb;
+    vec3 baseColor = texture2D(EFFECT_SAMPLER, PS_TEXCOORD0).rgb;
 
     // Definimos el color "blanco/gris" que quieres detectar
     vec3 targetColor = vec3(0.78); // hsv(0,0,0.78) → rgb(0.78,0.78,0.78)

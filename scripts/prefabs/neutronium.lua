@@ -1,11 +1,15 @@
-local assets = {
+local neutroniumAssets = {
     Asset("ANIM", "anim/neutronium.zip"),
+}
+
+local neutroniumPileAssets = {
+    Asset("ANIM", "anim/neutronium_pile.zip"),
 }
 
 local prefabs = {
 }
 
-local function common_fn()
+local function neutroniumFn()
     local inst = CreateEntity()
 
     inst.entity:AddTransform()
@@ -47,7 +51,7 @@ local function common_fn()
 	inst:AddComponent("inspectable")
 
     inst:AddComponent("stackable")
-    inst.components.stackable.maxsize = TUNING.STACK_SIZE_SMALLITEM
+    inst.components.stackable.maxsize = TUNING.STACK_SIZE_MEDITEM
 
     inst:AddComponent("inventoryitem")
     inst.components.inventoryitem.imagename = "neutronium"
@@ -58,4 +62,45 @@ local function common_fn()
     return inst
 end
 
-return Prefab("neutronium", common_fn, assets, prefabs)
+local function neutroniumPileFn()
+    local inst = CreateEntity()
+
+    inst.entity:AddTransform()
+    inst.entity:AddAnimState()
+    inst.entity:AddNetwork()
+
+    MakeInventoryPhysics(inst)
+
+    local minimap = inst.entity:AddMiniMapEntity()
+	minimap:SetIcon("neutronium.tex")
+
+    inst.AnimState:SetBank("neutronium_pile")
+    inst.AnimState:SetBuild("neutronium_pile")
+    inst.AnimState:PlayAnimation("idle")
+
+    inst:AddTag("neutronium")
+    inst:AddTag("pile")
+    inst:AddTag("dust")
+
+    MakeInventoryFloatable(inst, "small", 0.05, {0.75, 0.4, 0.75})
+
+    inst.entity:SetPristine()
+
+    if not TheWorld.ismastersim then
+        return inst
+    end
+
+	inst:AddComponent("inspectable")
+
+    inst:AddComponent("stackable")
+    inst.components.stackable.maxsize = TUNING.STACK_SIZE_TINYITEM
+
+    inst:AddComponent("inventoryitem")
+    inst.components.inventoryitem.imagename = "neutronium_pile"
+    inst.components.inventoryitem.atlasname = "images/inventoryimages/neutronium_pile.xml"
+
+    return inst
+end
+
+return Prefab("neutronium", neutroniumFn, neutroniumAssets, prefabs)--,
+        --Prefab("neutronium_pile", neutroniumPileFn, neutroniumPileAssets, prefabs)

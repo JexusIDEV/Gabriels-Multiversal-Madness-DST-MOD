@@ -7,12 +7,14 @@ TUNING.GABRIEL_EIPA_UNAE_HEALTH = 180
 TUNING.GABRIEL_EIPA_UNAE_HUNGER = 160
 TUNING.GABRIEL_EIPA_UNAE_SANITY = 200
 
+TUNING.GABRIEL_EIPA_UNAE_HUNGER_MULT_FACTOR = .175
+
 TUNING.GABRIEL_EIPA_UANE_SHADOW_CREATURE_PENALTY = {
 	SHADOWWORKER = .05,
 	SHADOWPROTECTOR = .05,
 }
 
-TUNING.GABRIEL_EIPA_UANE_READING_PENALTY_MULT = .75
+TUNING.GABRIEL_EIPA_UANE_READING_PENALTY_MULT = 1.25
 TUNING.GABRIEL_EIPA_UANE_SHADOW_ITEM_RESISTANCE_DAPPERNESS = 2
 TUNING.GABRIEL_EIPA_UNAE_CODEX_UMBRA_BOOK_MAX_SHADOW_CREATURES = 8
 
@@ -37,6 +39,58 @@ local function customidleanimfn(inst)
 			--takes priority over inst.customidlestate
 			return "idle3_waxwell"
 		end
+	end
+end
+
+local function GetPointSpecialActions(inst, pos, useitem, right, usereticulepos)
+	if right then
+		if useitem == nil then
+			local inventory = inst.replica.inventory
+			if inventory ~= nil then
+				useitem = inventory:GetEquippedItem(EQUIPSLOTS.HEAD)
+			end
+		end
+		if useitem and
+			useitem.prefab == "roseglasseshat" and
+			useitem:HasTag("closeinspector")
+		then
+			--match ReticuleTargetFn
+			if usereticulepos then
+				local pos2 = Vector3()
+				for r = 2.5, 1, -.25 do
+					pos2.x, pos2.y, pos2.z = inst.entity:LocalToWorldSpace(r, 0, 0)
+					if CLOSEINSPECTORUTIL.IsValidPos(inst, pos2) then
+						return { ACTIONS.LOOKAT }, pos2
+					end
+				end
+			end
+
+			--default
+			if CLOSEINSPECTORUTIL.IsValidPos(inst, pos) then
+				return { ACTIONS.LOOKAT }
+			end
+		end
+	end
+	return {}
+end
+
+local function ReticuleTargetFn()
+	local player = ThePlayer
+	local ground = TheWorld.Map
+	local pos = Vector3()
+	for r = 2.5, 1, -.25 do
+		pos.x, pos.y, pos.z = player.entity:LocalToWorldSpace(r, 0, 0)
+		if CLOSEINSPECTORUTIL.IsValidPos(player, pos) then
+			return pos
+		end
+	end
+	pos.x, pos.y, pos.z = player.Transform:GetWorldPosition()
+	return pos
+end
+
+local function OnSetOwner(inst)
+	if inst.components.playeractionpicker then
+		inst.components.playeractionpicker.pointspecialactionsfn = GetPointSpecialActions
 	end
 end
 
@@ -221,13 +275,6 @@ local function DoAnnounceShadowLevel(inst, params, item)
 	params.time = t
 	params.level = level
 	params.levels[level] = t
-
-	--For searching:
-	--ANNOUNCE_EQUIP_SHADOWLEVEL_T1
-	--ANNOUNCE_EQUIP_SHADOWLEVEL_T2
-	--ANNOUNCE_EQUIP_SHADOWLEVEL_T3
-	--ANNOUNCE_EQUIP_SHADOWLEVEL_T4
-	inst.components.talker:Say(GetString(inst, "ANNOUNCE_EQUIP_SHADOWLEVEL_T"..tostring(level)))
 end
 
 local function OnEquip(inst, data)
@@ -261,7 +308,15 @@ local function OnUnequip(inst, data)
 	end
 end
 
-local OnLoad = function(inst)
+local function onSave(inst, data)
+	data.charlie_vinesave = inst.charlie_vinesave
+end
+
+local function onPreLoad(inst, data, ents)
+	inst.charlie_vinesave = data.charlie_vinesave or inst.charlie_vinesave
+end
+
+local onLoad = function(inst)
     inst:ListenForEvent("ms_respawnedfromghost", onBecameGhost)
     inst:ListenForEvent("ms_becameghost", onBecameGhost)
 
@@ -271,12 +326,20 @@ local OnLoad = function(inst)
         onBecameHuman(inst)
     end
 
+	if not inst.components.health:IsDead() then
+		inst.charlie_vinesave = nil
+	end
+
     inst.components.magician:StopUsing()
     OnSkinsChanged(inst, {nofx = true})
 end
 
 local common_postinit = function(inst)
     inst.MiniMapEntity:SetIcon( "gabriel_eipa_unae.tex" )
+
+	inst:AddTag("handyperson")
+    inst:AddTag("fastbuilder")
+	inst:AddTag("hungrybuilder")
 
     inst:AddTag("criptian")
     inst:AddTag("ezacian")
@@ -288,15 +351,23 @@ local common_postinit = function(inst)
     --inst.AnimState:AddOverrideBuild("player_idles_waxwell")
 
     if TheNet:GetServerGameMode() == "quagmire" then
+		inst:AddTag("quagmire_fasthands")
         inst:AddTag("quagmire_shopper")
     end
+
+	inst:AddComponent("inspectaclesparticipant")
+
+	inst:AddComponent("reticule")
+	inst.components.reticule.targetfn = ReticuleTargetFn
+	inst.components.reticule.ease = true
 
 	--magician (from magician component) added to pristine state for optimization
 	inst:AddTag("magician")
 
     --reader (from reader component) added to pristine state for optimization
     inst:AddTag("reader")
-    
+	
+	inst:ListenForEvent("setowner", OnSetOwner)
 end
 
 local function master_postinit(inst)
@@ -313,7 +384,7 @@ local function master_postinit(inst)
     if inst.components.petleash ~= nil then
         inst._OnSpawnPet = inst.components.petleash.onspawnfn
         inst._OnDespawnPet = inst.components.petleash.ondespawnfn
-		inst.components.petleash:SetMaxPets(inst.components.petleash:GetMaxPets() + 8)
+		inst.components.petleash:SetMaxPets(inst.components.petleash:GetMaxPets() + TUNING.GABRIEL_EIPA_UNAE_CODEX_UMBRA_BOOK_MAX_SHADOW_CREATURES)
     else
         inst:AddComponent("petleash")
 		inst.components.petleash:SetMaxPets(TUNING.GABRIEL_EIPA_UNAE_CODEX_UMBRA_BOOK_MAX_SHADOW_CREATURES)
@@ -328,19 +399,21 @@ local function master_postinit(inst)
 
     inst.customidleanim = "idle_wilson"
 
+	inst.components.grue:SetResistance(1)
+
     inst.components.foodaffinity:AddPrefabAffinity("baconeggs", TUNING.AFFINITY_15_CALORIES_HUGE)
 
     inst.components.health:SetMaxHealth(TUNING.GABRIEL_EIPA_UNAE_HEALTH)
     inst.components.hunger:SetMax(TUNING.GABRIEL_EIPA_UNAE_HUNGER)
     inst.components.sanity:SetMax(TUNING.GABRIEL_EIPA_UNAE_SANITY)
-	--inst.components.sanity.dapperness = TUNING.DAPPERNESS_LARGE
+	inst.components.sanity.dapperness = TUNING.DAPPERNESS_LARGE
 	inst.components.sanity.get_equippable_dappernessfn = GetEquippableDapperness
 	inst.components.locomotor:SetMotorSpeed(1.2)
 
 	inst.components.sanity.custom_rate_fn = sanityRegeneration
 
     inst.components.combat.damagemultiplier = 1.5
-    inst.components.hunger.hungerrate = .325
+    inst.components.hunger.hungerrate = 1 * TUNING.GABRIEL_EIPA_UNAE_HUNGER_MULT_FACTOR
 
     inst._onpetlost = function(pet) inst.components.sanity:RemoveSanityPenalty(pet) end
 
@@ -360,7 +433,9 @@ local function master_postinit(inst)
 		levels = {},
 	}
 
-    inst.OnLoad = OnLoad
+    inst.OnSave = onSave
+	inst.OnPreLoad = onPreLoad
+	inst.OnLoad = onLoad
     inst.OnNewSpawn = OnDespawn
 end
 

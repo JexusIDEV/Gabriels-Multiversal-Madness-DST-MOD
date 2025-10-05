@@ -92,8 +92,8 @@ return {
             NO_TARGETS = "only_used_by_willow",
             CANT_SPELL_MOUNTED = "only_used_by_willow",
             SPELL_ON_COOLDOWN = "only_used_by_willow",
-			NO_BATTERY = "only_used_by_winona",
-			NO_CATAPULTS = "only_used_by_winona",
+			NO_BATTERY = "This battery doesn't have energy...",
+			NO_CATAPULTS = "The're no such as a catapult, right?",
 		},
         CASTSPELL =
         {
@@ -237,10 +237,10 @@ return {
 		LOOKAT = --fail strings for close inspection
 		{
 			-- Winona specific
-			ROSEGLASSES_INVALID = "only_used_by_winona",
-			ROSEGLASSES_COOLDOWN = "only_used_by_winona",
-            ROSEGLASSES_DISMISS = "only_used_by_winona",
-            ROSEGLASSES_STUMPED = "only_used_by_winona",
+			ROSEGLASSES_INVALID = "No signs of her?.",
+			ROSEGLASSES_COOLDOWN = "Let's take a breather.",
+            ROSEGLASSES_DISMISS = "Drat, I lost the trail!",
+            ROSEGLASSES_STUMPED = "Hmm... I can't tell if her has been here.",
 			--
 		},
         LOWER_SAIL_FAIL =
@@ -318,8 +318,8 @@ return {
         },
 		REMOTE_TELEPORT =
 		{
-			NOSKILL = "only_used_by_winona",
-			NODEST = "only_used_by_winona",
+			NOSKILL = "I don't know how to use it properly, ¡Only my own tech!",
+			NODEST = "It's not gonna work without a receiving end.",
 		},
         REMOVEMODULES =
         {
@@ -484,12 +484,12 @@ return {
 	ANNOUNCE_BOOMERANG = "Ow! I should try to catch that!",
 	ANNOUNCE_CHARLIE = "That presence... it's familiar! Hello?",
 	ANNOUNCE_CHARLIE_ATTACK = "OW! Something bit me!",
-	ANNOUNCE_CHARLIE_MISSED = "only_used_by_winona", --winona specific
-	ANNOUNCE_COLD = "So cold!",
-	ANNOUNCE_HOT = "Need... ice... or... shade!",
-	ANNOUNCE_CRAFTING_FAIL = "I'm missing a couple key ingredients.",
-	ANNOUNCE_DEERCLOPS = "That sounded big!",
-	ANNOUNCE_CAVEIN = "The ceiling is destabilizing!",
+	ANNOUNCE_CHARLIE_MISSED = "¡You can't catch me!", --winona specific
+	ANNOUNCE_COLD = "UGH, ¡SO COLD!",
+	ANNOUNCE_HOT = "Need... ice... or... ¡Shade!",
+	ANNOUNCE_CRAFTING_FAIL = "I don't have all the ingredients...",
+	ANNOUNCE_DEERCLOPS = "That sounds sounded big!",
+	ANNOUNCE_CAVEIN = "¡The ceiling is dropping!",
 	ANNOUNCE_ANTLION_SINKHOLE =
 	{
 		"The ground is destabilizing!",
@@ -513,17 +513,17 @@ return {
     -- Winona specific
     ANNOUNCE_ROSEGLASSES = 
     {
-        "only_used_by_winona",
-        "only_used_by_winona",
-        "only_used_by_winona",
+        "Who's she?",
+        "I can feel the presence of someone...",
+        "I can feel magic...",
     },
     ANNOUNCE_CHARLIESAVE = 
     {
-        "only_used_by_winona",
+        "Im sure, that thing or someone wants to kill me...",
     },
-	ANNOUNCE_ENGINEERING_CAN_UPGRADE = "only_used_by_winona",
-	ANNOUNCE_ENGINEERING_CAN_DOWNGRADE = "only_used_by_winona",
-	ANNOUNCE_ENGINEERING_CAN_SIDEGRADE = "only_used_by_winona",
+	ANNOUNCE_ENGINEERING_CAN_UPGRADE = "Easy peasy, my version is miles ahead.",
+	ANNOUNCE_ENGINEERING_CAN_DOWNGRADE = "Whoa, this one is more advanced than my version.",
+	ANNOUNCE_ENGINEERING_CAN_SIDEGRADE = "Interesting. This version and mine are ahead in different ways.",
 
 	ANNOUNCE_EAT =
 	{
@@ -536,7 +536,7 @@ return {
 
         --Warly specific ANNOUNCE_EAT strings
 		COOKED = "Perfectly cooked.",
-		DRIED = "Tastes weridly dry...",
+		DRIED = "Tastes weirdly dry...",
         PREPARED = "What a well prepared meal.",
         RAW = "",
 		SAME_OLD_1 = "",
@@ -618,7 +618,7 @@ return {
 	ANNOUNCE_TRAP_WENT_OFF = "Oops.",
 	ANNOUNCE_UNIMPLEMENTED = "OW! I don't think it's ready yet.",
 	ANNOUNCE_WORMHOLE = "That was not a sane thing to do.",
-    ANNOUNCE_WORMHOLE_SAMESPOT = "only_used_by_winona",
+    ANNOUNCE_WORMHOLE_SAMESPOT = "Sheesh. Just took the long way to nowhere.",
 	ANNOUNCE_TOWNPORTALTELEPORT = "I'm not sure that was science.",
 	ANNOUNCE_CANFIX = "\nI think I can fix this!",
 	ANNOUNCE_ACCOMPLISHMENT = "I feel so accomplished!",
@@ -687,11 +687,17 @@ return {
     --winona specific
     ANNOUNCE_HUNGRY_SLOWBUILD =
     {
-	    "only_used_by_winona",
+	    "My head's all clouded by hunger!",
+	    "Oof. I got the brainfog.",
+	    "Maybe I could take a snack break?",
+	    "I could sure go for some grub.",
     },
     ANNOUNCE_HUNGRY_FASTBUILD =
     {
-	    "only_used_by_winona",
+	    "This's hungry work.",
+	    "I'm working up an appetite.",
+	    "That made me a lil hungry.",
+	    "I'll need some brainfood at this rate.",
     },
 
     --wormwood specific
@@ -1010,12 +1016,12 @@ return {
 
 	BATTLECRY =
 	{
-		GENERIC = "Go for the eyes!",
-		PIG = "Here piggy piggy!",
-		PREY = "I will destroy you!",
-		SPIDER = "I'm going to stomp you dead!",
-		SPIDER_WARRIOR = "Better you than me!",
-		DEER = "Die, doe!",
+		GENERIC = "¡Go ahead idiot!",
+		PIG = "¡Here piggy!",
+		PREY = "¡I will destroy you!",
+		SPIDER = "¡I'm going to stomp you deadass!",
+		SPIDER_WARRIOR = "¡Better you than me!",
+		DEER = "¡Die, doe!",
 	},
 	COMBAT_QUIT =
 	{
@@ -1474,13 +1480,13 @@ return {
 
         HOUNDSTOOTH = "It's sharp!",
         ARMORSNURTLESHELL = "It sticks to your back when you wear it.",
-        BAT = "Ack! That's terrifying!",
+        BAT = "¡NOT CUTE BAT!",
         BATBAT = "I bet I could fly if I held two of them.",
         BATWING = "I hate those things, even when they're dead.",
         BATWING_COOKED = "At least it's not coming back.",
         BATCAVE = "I don't want to wake them.",
         BEDROLL_FURRY = "It's so warm and comfy.",
-        BUNNYMAN = "I am filled with an irresistible urge to do science.",
+        BUNNYMAN = "It looks a little bit scary... What do they do?",
         FLOWER_CAVE = "Science makes it glow.",
         GUANO = "Another flavor of poop.",
         LANTERN = "A more civilized light.",
@@ -2437,7 +2443,7 @@ return {
             GENERIC = "I bet there's all sorts of good stuff down there!",
         },
         NIGHTLIGHT = "It gives off a spooky light.",
-        NIGHTMAREFUEL = "This stuff is crazy!",
+        NIGHTMAREFUEL = "I can feel is thoughts...",
         NIGHTSWORD = "Why would anyone make this? It's terrifying.",
         NITRE = "I'm not a geologist.",
         ONEMANBAND = "We should add a beefalo bell.",
@@ -2456,28 +2462,28 @@ return {
         PETALS = "Sure showed those flowers who's boss!",
         PETALS_EVIL = "I'm not sure I want to hold those.",
         PHLEGM = "It's thick and pliable. And salty.",
-        PICKAXE = "Iconic, isn't it?",
-        PIGGYBACK = "This little piggy's gone... \"home\".",
+        PICKAXE = "Iconical, isn't it?",
+        PIGGYBACK = "For more space, but i'm feel a little sad for the pig...",
         PIGHEAD =
         {
-            GENERIC = "Looks like an offering to the beast.",
+            GENERIC = "Ew...",
             BURNT = "Crispy.",
         },
         PIGHOUSE =
         {
             FULL = "I can see a snout pressed up against the window.",
-            GENERIC = "These pigs have pretty fancy houses.",
+            GENERIC = "Looks a little bit fancy.",
             LIGHTSOUT = "Come ON! I know you're home!",
-            BURNT = "Not so fancy now, pig!",
+            BURNT = "oh, oh, burned out, pig!",
         },
         PIGKING = "Ewwww, he smells!",
         PIGMAN =
         {
             DEAD = "Someone should tell its family.",
             FOLLOWER = "You're part of my entourage.",
-            GENERIC = "They kind of creep me out.",
+            GENERIC = "What? A anthropomorphic pig?",
             GUARD = "Looks serious.",
-            WEREPIG = "Not a friendly pig!!",
+            WEREPIG = "¡OH FREAK! ¡A WERE-WERE PIG!",
         },
         PIGSKIN = "It still has the tail on it.",
         PIGTENT = "Smells like bacon.",
@@ -3549,9 +3555,9 @@ return {
         },
         WINONA_BATTERY_HIGH =
         {
-			GENERIC = "Hey! That's not science!",
+			GENERIC = "Hey! That's not science! But, don't worry it.",
 			LOWPOWER = "It'll turn off soon.",
-			OFF = "Science beats magic, every time.",
+			OFF = "Oh yeah, magic and science, the best of these worlds.",
 			BURNING = "It's on fire!",
 			BURNT = "Science couldn't save it.",
 			OVERLOADED = "It's about to explode! ...Sorry, old habit from my lab days.",
@@ -3567,15 +3573,15 @@ return {
 		WINONA_TELEBRELLA =
 		{
 			GENERIC = "Winona's been brainstorming.",
-            MISSINGSKILL = "only_used_by_winona",
+            MISSINGSKILL = "Interesting design, but not quite for me...",
 			OFF = "It needs some electricity.",
 			CHARGING = "Winona's been brainstorming.",
 			CHARGED = "Winona's been brainstorming.",
 		},
 		WINONA_TELEPORT_PAD_ITEM =
 		{
-			GENERIC = "It uses displacement theory - things go from displace to datplace.",
-            MISSINGSKILL = "only_used_by_winona",
+			GENERIC = "It uses the power of quantum mechanics theory and a little bit of magic \n-\n meta-space strings point A to B.",
+            MISSINGSKILL = "Interesting design, but not quite for me...",
 			OFF = "It needs some electricity.",
 			BURNING = "It's on fire!",
 			BURNT = "Science couldn't save it.",
@@ -3588,25 +3594,25 @@ return {
 			CHARGING = "Taking a break? Winona must be going easy on you.",
 			CHARGED = "Taking a break? Winona must be going easy on you.",
 		},
-		INSPECTACLESBOX = "only_used_by_winona",
-		INSPECTACLESBOX2 = "only_used_by_winona",
+		INSPECTACLESBOX = "Sure hope the bossman doesn't mind me borrowing a few things.",
+		INSPECTACLESBOX2 = "Jackpot!",
 		INSPECTACLESHAT = 
         {
             GENERIC = "Winona always struck me as someone with a vision for the future.",
-            MISSINGSKILL = "only_used_by_winona",
+            MISSINGSKILL = "I'd love to know the specs for those specs! Ha!",
         },
 		ROSEGLASSESHAT =
         {
-            GENERIC = "They don't seem like Winona's usual style.",
-            MISSINGSKILL = "only_used_by_winona",
+            GENERIC = "Alright, Charlie. Show me the way.",
+            MISSINGSKILL = "Something about 'em makes me really miss Charlie.",
         },
-		CHARLIERESIDUE = "only_used_by_winona",
-		CHARLIEROSE = "only_used_by_winona",
-        WINONA_MACHINEPARTS_1 = "only_used_by_winona",
-        WINONA_MACHINEPARTS_2 = "only_used_by_winona",
-		WINONA_RECIPESCANNER = "only_used_by_winona",
-		WINONA_HOLOTELEPAD = "only_used_by_winona",
-		WINONA_HOLOTELEBRELLA = "only_used_by_winona",
+		CHARLIERESIDUE = "I must've just missed her... but she left somethin' behind.",
+		CHARLIEROSE = "Oh, Charlie. What are you gettin' me into now?",
+        WINONA_MACHINEPARTS_1 = "You just can't get quality manufactured parts like this out here!",
+        WINONA_MACHINEPARTS_2 = "Oh, I've got big plans for this.",
+		WINONA_RECIPESCANNER = "One scan with this Calibrated Perceiver, and I'll know how somethin's built!",
+		WINONA_HOLOTELEPAD = "Looks like one of the boss's old designs. I should give it a scan.",
+		WINONA_HOLOTELEBRELLA = "I should give it a scan with the ol' Calibrated Perceiver.",
 
         --Wormwood
         COMPOSTWRAP = "Wormwood offered me a bite, but I respectfully declined.",
@@ -4996,19 +5002,19 @@ return {
 		HORRORFUEL = "It sends a terrible shiver down my spine.",
 		DAYWALKER =
 		{
-			GENERIC = "Freeing him might not have been my best idea.",
-			IMPRISONED = "I feel almost sorry for him.",
+			GENERIC = "Definitively an clearly bad option for freeing him... ¡Stupid Were-Werepig!",
+			IMPRISONED = "Hmmm, why looks he like a Were-Werepig and why have he a red glint eye?\nMaybe is magic...",
 		},
 		DAYWALKER_PILLAR =
 		{
-			GENERIC = "There's something glinting inside the marble.",
-			EXPOSED = "A pillar of impossibly hard stone.",
+			GENERIC = "I can feel a darkened harden material.",
+			EXPOSED = "Not more hard as Neutronium; ¡But this thing is hard!",
 		},
 		DAYWALKER2 =
 		{
-			GENERIC = "Let's not upset him.",
-			BURIED = "He's trapped under all that junk.",
-			HOSTILE = "He seems upset.",
+			GENERIC = "I'm not going to upset him.",
+			BURIED = "Maybe he's trapped under all that junk.",
+			HOSTILE = "¡Oh dear! ¡The beast is mad!",
 		},
 		ARMORDREADSTONE = "Lightweight, sturdy, and snazzy!",
 		DREADSTONEHAT = "To keep my brilliant brain safe and sound.",
