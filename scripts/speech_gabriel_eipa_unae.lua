@@ -2516,12 +2516,12 @@ return {
         PURPLEGEM = "It contains the mysteries of the universe.",
         RABBIT =
         {
-            GENERIC = "He's looking for carrots.",
-            HELD = "Do you like science?",
+            GENERIC = "He's looking for greens.",
+            HELD = "¡Hi little bunny!",
         },
         RABBITHOLE =
         {
-            GENERIC = "That must lead to the Kingdom of the Bunnymen.",
+            GENERIC = "That must lead to the Kingdom of the Bunnymen...",
             SPRING = "The Kingdom of the Bunnymen is closed for the season.",
         },
         RAINOMETER =

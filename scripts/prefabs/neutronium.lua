@@ -71,9 +71,6 @@ local function neutroniumPileFn()
 
     MakeInventoryPhysics(inst)
 
-    local minimap = inst.entity:AddMiniMapEntity()
-	minimap:SetIcon("neutronium.tex")
-
     inst.AnimState:SetBank("neutronium_pile")
     inst.AnimState:SetBuild("neutronium_pile")
     inst.AnimState:PlayAnimation("idle")
@@ -81,6 +78,7 @@ local function neutroniumPileFn()
     inst:AddTag("neutronium")
     inst:AddTag("pile")
     inst:AddTag("dust")
+    inst:AddTag("powder")
 
     MakeInventoryFloatable(inst, "small", 0.05, {0.75, 0.4, 0.75})
 
@@ -102,5 +100,5 @@ local function neutroniumPileFn()
     return inst
 end
 
-return Prefab("neutronium", neutroniumFn, neutroniumAssets, prefabs)--,
-        --Prefab("neutronium_pile", neutroniumPileFn, neutroniumPileAssets, prefabs)
+return Prefab("neutronium", neutroniumFn, neutroniumAssets, prefabs),
+        Prefab("neutronium_pile", neutroniumPileFn, neutroniumPileAssets, prefabs)

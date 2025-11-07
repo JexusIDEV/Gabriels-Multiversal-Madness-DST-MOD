@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<spriter_data scml_version="1.0" generator="BrashMonkey Spriter" generator_version="r11">
+    <folder id="0" name="neutron_collector">
+        <file id="0" name="neutron_collector/neutron_collector-0.png" width="256" height="256" pivot_x="0.5" pivot_y="0.1"/>
+    </folder>
+    <folder id="1">
+        <file id="0" name="neutron_collectors.png" width="256" height="256" pivot_x="0" pivot_y="1"/>
+    </folder>
+    <entity id="0" name="neutron_collector">
+        <animation id="0" name="place" length="1000" interval="100">
+            <mainline>
+                <key id="0">
+                    <object_ref id="0" timeline="0" key="0" z_index="0"/>
+                </key>
+                <key id="1" time="79">
+                    <object_ref id="0" timeline="0" key="1" z_index="0"/>
+                </key>
+                <key id="2" time="190">
+                    <object_ref id="0" timeline="0" key="2" z_index="0"/>
+                </key>
+                <key id="3" time="330">
+                    <object_ref id="0" timeline="0" key="3" z_index="0"/>
+                </key>
+                <key id="4" time="400">
+                    <object_ref id="0" timeline="0" key="4" z_index="0"/>
+                </key>
+                <key id="5" time="620">
+                    <object_ref id="0" timeline="0" key="5" z_index="0"/>
+                </key>
+                <key id="6" time="1000">
+                    <object_ref id="0" timeline="0" key="6" z_index="0"/>
+                </key>
+            </mainline>
+            <timeline id="0" name="neutron_collector-0_001">
+                <key id="0" spin="0">
+                    <object folder="0" file="0" y="160" angle="0" scale_x="0.5"/>
+                </key>
+                <key id="1" time="79" spin="0">
+                    <object folder="0" file="0" y="46.736842" angle="0" scale_x="0.5"/>
+                </key>
+                <key id="2" time="190" spin="0">
+                    <object folder="0" file="0" angle="0"/>
+                </key>
+                <key id="3" time="330" spin="0">
+                    <object folder="0" file="0" y="6.187845" angle="0" scale_x="1.268482" scale_y="0.80473"/>
+                </key>
+                <key id="4" time="400" spin="0">
+                    <object folder="0" file="0" y="6.187845" angle="0" scale_x="1.268482" scale_y="0.80473"/>
+                </key>
+                <key id="5" time="620" spin="0">
+                    <object folder="0" file="0" angle="0"/>
+                </key>
+                <key id="6" time="1000" spin="0">
+                    <object folder="0" file="0" angle="0"/>
+                </key>
+            </timeline>
+        </animation>
+        <animation id="1" name="idle" length="1000" interval="100">
+            <mainline>
+                <key id="0">
+                    <object_ref id="0" timeline="0" key="0" z_index="0"/>
+                </key>
+            </mainline>
+            <timeline id="0" name="neutron_collector-0">
+                <key id="0" spin="0">
+                    <object folder="0" file="0" angle="0"/>
+                </key>
+            </timeline>
+        </animation>
+        <animation id="2" name="idle_loop" length="1000" interval="100">
+            <mainline>
+                <key id="0">
+                    <object_ref id="0" timeline="0" key="0" z_index="0"/>
+                </key>
+                <key id="1" time="301">
+                    <object_ref id="0" timeline="0" key="1" z_index="0"/>
+                </key>
+                <key id="2" time="699">
+                    <object_ref id="0" timeline="0" key="2" z_index="0"/>
+                </key>
+            </mainline>
+            <timeline id="0" name="neutron_collector-0">
+                <key id="0" spin="0">
+                    <object folder="0" file="0" angle="0"/>
+                </key>
+                <key id="1" time="301" spin="0">
+                    <object folder="0" file="0" angle="0" scale_y="0.925912"/>
+                </key>
+                <key id="2" time="699" spin="0">
+                    <object folder="0" file="0" angle="0" scale_y="1.032584"/>
+                </key>
+            </timeline>
+        </animation>
+    </entity>
+</spriter_data>

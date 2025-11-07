@@ -1,0 +1,16 @@
+{
+    "Lua.workspace.library": [
+        "D:\\Binarios\\Binarios\\dst\\scripts\\root"
+    ],
+    "Lua.diagnostics.disable": [
+        "lowercase-global",
+        "undefined-field",
+        "inject-field"
+    ],
+    "Lua.runtime.path": [
+        "?.lua",
+        "?/init.lua",
+        "scripts/?.lua"
+    ],
+    "Lua.runtime.version": "Lua 5.1"
+}

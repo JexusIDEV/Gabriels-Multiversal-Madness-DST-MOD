@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <spriter_data scml_version="1.0" generator="BrashMonkey Spriter" generator_version="r11">
     <folder id="0" name="neutronium_pickaxe">
-        <file id="0" name="neutronium_pickaxe/neutronium_pickaxe-0.png" width="200" height="170" pivot_x="0.404632" pivot_y="0.051598"/>
+        <file id="0" name="neutronium_pickaxe/neutronium_pickaxe-0.png" width="200" height="200" pivot_x="0.47" pivot_y="0.19"/>
     </folder>
     <folder id="1" name="swap_object">
         <file id="0" name="swap_object/swap_object-0.png" width="220" height="200" pivot_x="0.4575" pivot_y="0.305"/>
@@ -12,6 +12,9 @@
         <file id="5" name="swap_object/swap_object-5.png" width="120" height="260" pivot_x="0.34" pivot_y="0.238462"/>
         <file id="6" name="swap_object/swap_object-6.png" width="100" height="240" pivot_x="0.5" pivot_y="0.229167"/>
     </folder>
+    <folder id="2">
+        <file id="0" name="neutronium_tool.png" width="202" height="185" pivot_x="0" pivot_y="1"/>
+    </folder>
     <entity id="0" name="neutronium_pickaxe">
         <animation id="0" name="idle" length="25" interval="25">
             <mainline>
@@ -21,7 +24,7 @@
             </mainline>
             <timeline id="0" name="neutronium_pickaxe">
                 <key id="0" curve_type="instant">
-                    <object folder="0" file="0" angle="0" scale_x="1.000001" scale_y="1.000001"/>
+                    <object folder="0" file="0" x="-39.775576" y="132.445355" angle="229.653352"/>
                 </key>
             </timeline>
         </animation>

@@ -242,72 +242,6 @@ local function GetEquippableDapperness(owner, equippable)
 		or dapperness
 end
 
-local function DoAnnounceShadowLevel(inst, params, item)
-	params.task = nil
-
-	if inst.components.health:IsDead() or inst:HasTag("playerghost") then
-		return
-	end
-
-	local level = item:IsValid() and item.components.shadowlevel ~= nil and item.components.shadowlevel:GetCurrentLevel() or 0
-	if level <= 0 or
-		not (item.components.equippable ~= nil and item.components.equippable:IsEquipped()) or
-		not (item.components.inventoryitem ~= nil and item.components.inventoryitem:IsHeldBy(inst))
-		then
-		return
-	end
-
-	level = math.min(4, level)
-
-	local t = GetTime()
-	if t < (params.levels[level] or -math.huge) + 600 then
-		--Suppress announcements until haven't worn anything this level in over 10min.
-		--Note that timer starts from last unequipped.
-		params.levels[level] = t
-		return
-	end
-
-	if inst.sg:HasStateTag("talking") or (level <= params.level and t < params.time + 3) then
-		--busy talking, or announced equal or higher level less than 3 seconds ago
-		return
-	end
-
-	params.time = t
-	params.level = level
-	params.levels[level] = t
-end
-
-local function OnEquip(inst, data)
-	if data ~= nil and data.item ~= nil and data.item.components.shadowlevel ~= nil then
-		--default level ignoring fuel
-		local level = data.item.components.shadowlevel.level
-		if level > 0 then
-			local params = inst._announceshadowlevel
-			if params.task ~= nil then
-				params.task:Cancel()
-			end
-			local t = GetTime()
-			if t > inst.spawntime then
-				params.task = inst:DoTaskInTime(.5, DoAnnounceShadowLevel, params, data.item)
-			else
-				--Just spawned, suppress announcements
-				params.task = nil
-				params.levels[math.min(4, level)] = GetTime()
-			end
-		end
-	end
-end
-
-local function OnUnequip(inst, data)
-	if data ~= nil and data.item ~= nil and data.item.components.shadowlevel ~= nil then
-		--default level ignoring fuel
-		local level = data.item.components.shadowlevel.level
-		if level > 0 then
-			inst._announceshadowlevel.levels[math.min(4, level)] = GetTime()
-		end
-	end
-end
-
 local function onSave(inst, data)
 	data.charlie_vinesave = inst.charlie_vinesave
 end
@@ -334,6 +268,7 @@ local onLoad = function(inst)
     OnSkinsChanged(inst, {nofx = true})
 end
 
+---@param inst Instance
 local common_postinit = function(inst)
     inst.MiniMapEntity:SetIcon( "gabriel_eipa_unae.tex" )
 
@@ -370,6 +305,7 @@ local common_postinit = function(inst)
 	inst:ListenForEvent("setowner", OnSetOwner)
 end
 
+---@param inst Instance
 local function master_postinit(inst)
     inst.starting_inventory = start_inv[TheNet:GetServerGameMode()] or start_inv.default
 
@@ -380,6 +316,8 @@ local function master_postinit(inst)
     inst:AddComponent("reader")
     inst.components.reader:SetSanityPenaltyMultiplier(TUNING.GABRIEL_EIPA_UANE_READING_PENALTY_MULT)
     inst.components.reader:SetOnReadFn(OnReadFn)
+
+	inst:AddComponent("efficientuser")
 
     if inst.components.petleash ~= nil then
         inst._OnSpawnPet = inst.components.petleash.onspawnfn
@@ -421,17 +359,6 @@ local function master_postinit(inst)
 	inst:ListenForEvent("ms_becameghost", onBecameGhost)
 	inst:ListenForEvent("ms_playerreroll", ForceDespawnShadowMinions)
 	inst:ListenForEvent("ms_becamehuman", onBecameHuman)
-
-	--Shadow level announcements
-	inst:ListenForEvent("equip", OnEquip)
-	inst:ListenForEvent("unequip", OnUnequip)
-	inst._announceshadowlevel =
-	{
-		task = nil,
-		time = -math.huge,
-		level = 0,
-		levels = {},
-	}
 
     inst.OnSave = onSave
 	inst.OnPreLoad = onPreLoad

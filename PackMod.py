@@ -1,7 +1,6 @@
 from zipfile import ZipFile, ZIP_DEFLATED
 import os
 from os import walk
-from pathlib import Path
 
 zipName = "GAB_MOD.zip"
 zipPath = "./"+zipName
@@ -11,6 +10,7 @@ locations = [
     "./bigportraits",
     "./images",
     "./scripts",
+    "./corescripts",
     "./shaders"
 ]
 

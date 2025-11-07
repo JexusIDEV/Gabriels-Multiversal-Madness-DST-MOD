@@ -6,6 +6,9 @@ TUNING.NEUTRONIUM_SWORD_DAMAGE_BASE = 320 --i want to keep the fight fun... but 
 TUNING.NEUTRONIUM_SWORD_FACTOR = 0.05
 TUNING.NEUTRONIUM_SWORD_SHADOW_LEVEL = 4
 TUNING.NEUTRONIUM_SWORD_WALK_SPEED_MULT = 1.75
+TUNING.NEUTRONIUM_SWORD_MOON_DARK_CREATURE_EXTRA_DAMAGE = 1.25
+
+
 local function OnEquip(inst, owner)
 	local skin_build = inst:GetSkinBuild()
     if skin_build ~= nil then
@@ -41,7 +44,7 @@ local function common_fn()
     inst.Light:SetIntensity(.8)
     inst.Light:SetRadius(.6)
     inst.Light:SetColour(255, 255, 255)
-    inst.Light:Enable(false)
+    inst.Light:Enable(true)
     inst.Light:EnableClientModulation(true)
 
     MakeInventoryPhysics(inst)
@@ -88,6 +91,13 @@ local function common_fn()
 	inst.components.weapon:SetDamage(TUNING.NEUTRONIUM_SWORD_DAMAGE_BASE)
 
     inst.components.weapon.attackwear = 1 / TUNING.NEUTRONIUM_SWORD_FACTOR
+
+    local damagetypebonus = inst:AddComponent("damagetypebonus")
+    --i dont care alignment fucckkerss
+	damagetypebonus:AddBonus("shadow_aligned", inst, TUNING.NEUTRONIUM_SWORD_MOON_DARK_CREATURE_EXTRA_DAMAGE)
+    damagetypebonus:AddBonus("lunar_aligned", inst, TUNING.NEUTRONIUM_SWORD_MOON_DARK_CREATURE_EXTRA_DAMAGE)
+    damagetypebonus:AddBonus("shadowsubmissive", inst, TUNING.NEUTRONIUM_SWORD_MOON_DARK_CREATURE_EXTRA_DAMAGE)
+    damagetypebonus:AddBonus("lunarsubmissive", inst, TUNING.NEUTRONIUM_SWORD_MOON_DARK_CREATURE_EXTRA_DAMAGE)
 
     inst.components.floater:SetBankSwapOnFloat(true, -11, {sym_build = "neutronium_sword"})
 

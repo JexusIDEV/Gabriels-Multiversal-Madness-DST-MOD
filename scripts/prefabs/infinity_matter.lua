@@ -23,13 +23,10 @@ local function common_fn()
 
     MakeInventoryPhysics(inst)
 
-    local minimap = inst.entity:AddMiniMapEntity()
-	minimap:SetIcon("infinity_matter.tex")
-
     inst.AnimState:SetBank("infinity_matter")
     inst.AnimState:SetBuild("infinity_matter")
     inst.AnimState:PlayAnimation("idle")
-    --inst.AnimState:SetBloomEffectHandle(resolvefilepath('shaders/infinity.ksh'))
+    --inst.AnimState:SetBloomEffectHandle("anim.ksh")
 
     inst:AddTag("infinity")
     inst:AddTag("infinity_matter")

@@ -25,9 +25,6 @@ local baseCircuitPropsFn = function(tier)
 
     MakeInventoryPhysics(inst)
 
-    local minimap = inst.entity:AddMiniMapEntity()
-	minimap:SetIcon("circuit_tier_"..tier..".tex")
-
     inst.AnimState:SetBank("circuit_tier_"..tier)
     inst.AnimState:SetBuild("circuit_tier_"..tier)
     inst.AnimState:PlayAnimation("idle")
